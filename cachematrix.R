@@ -3,14 +3,14 @@ makeCacheMatrix <- function(x = Matrix()) {
                      m <- NULL
                      set <- function(y) {
                                   x <<- y
-                                 m <<- NULL
+                                 m <<- NULL ##makes cache matrix
                                 }
                    get <- function() x
                    setinverse <- function(solve) m <<- solve(x)
                    getinverse <- function() m
                    list(set = set, get = get, setinverse = setinverse, getinverse = getinverse)
               }
-cacheSolve <- function(x, ...) {
+cacheSolve <- function(x, ...) {               ##makes cache solve
                            m <- x$getinverse()
                            if(!is.null(m)) {
                                        message("getting cached data")
